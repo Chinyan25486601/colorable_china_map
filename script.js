@@ -21,10 +21,11 @@ const main = function(){
             if(flag){
                 next_color = node_list[el_key][1]
                 next_color++
-                if(next_color>3) next_color-=4
+                if(next_color>color_list.length-1) next_color-=color_list.length
                 node_list[el_key][1] = next_color
             } else {
-                node_list.push([id, 0])
+                next_color = 1
+                node_list.push([id, 1])
             }
 
             children.forEach(e=>{
