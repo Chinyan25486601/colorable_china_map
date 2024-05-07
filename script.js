@@ -1,3 +1,12 @@
+const coastline_IDs = [
+    "g264",     // Guangdong
+    "g325",     // Guangxi
+    "g1437",    // Taiwan
+    "g114",     // Fujian
+    "g1694",    // Zhejiang
+    "g972",     // Liaoning
+]
+
 let node_list = []
 
 const loadSVG = function(){
@@ -9,8 +18,14 @@ const main = function(){
     const gs = document.querySelectorAll("*>svg>g>g>g")
     const textarea = document.querySelector("textarea")
     gs.forEach(el=>{
+        const id = el.getAttribute("id")
+
+        if(coastline_IDs.indexOf(id)!==-1){
+            console.log(el)
+            el.setAttribute("pointer-events", "none")
+        }
+
         el.addEventListener("click", event=>{
-            const id = el.getAttribute("id")
             const children = document.querySelectorAll(`#${id} *`)
             
             let flag = false
@@ -37,6 +52,7 @@ const main = function(){
                 e.setAttribute("fill", `#${color_list[next_color]}`)
             })
 
+
             textarea.value = JSON.stringify(node_list)
         })
     })
@@ -50,6 +66,7 @@ const main = function(){
             })
             delete n;
         })
+        if(!textarea.value.trim()) return
         node_list = JSON.parse(textarea.value)
         node_list.forEach(n=>{
             const id = n[0]
