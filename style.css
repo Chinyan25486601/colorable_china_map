@@ -1,0 +1,6 @@
+svg {
+    fill: #fff;
+}
+p,a {
+    user-select: none;
+}
