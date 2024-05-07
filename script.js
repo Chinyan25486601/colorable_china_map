@@ -1,5 +1,10 @@
 let node_list = []
 
+const loadSVG = function(){
+    const container = document.getElementById("svgContainer")
+    container.innerHTML = svgData
+}
+
 const main = function(){
     const gs = document.querySelectorAll("*>svg>g>g>g")
     const textarea = document.querySelector("textarea")
@@ -56,4 +61,7 @@ const main = function(){
     })
 }
 
-document.addEventListener("DOMContentLoaded", main)
+document.addEventListener("DOMContentLoaded", ()=>{
+    loadSVG()
+    main()
+})
