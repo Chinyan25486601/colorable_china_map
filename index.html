@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script>
-        const color_list = ["ffffff", "7dd3fc", "0ea5e9", "0369a1"]
+        let color_list = ["ffffff", "7dd3fc", "0ea5e9", "0369a1"]
     </script>
     <meta charset="UTF-8">
     <title>Colorable China Map</title>
@@ -11,9 +11,16 @@
 <body>
     <div id="svgContainer"></div>
     <div id="footer">
-        <p>Click any city you want on the map above to change its color. </p>
-        <p>All the information used for the drawing can be edited in the text box below. 
-            Copy it to a convenient location to continue next time.</p>
+        <div>Zoom in and click on any city you want on the map above to change its color cyclically. </div>
+        <div>All the information used for the drawing 
+            can be edited in the text box below (in JSON format). 
+            Copy it to a convenient location to continue next time. 
+            Click the blank area to refresh the data. 
+        </div>
+        <div>Modify the variable <code>color_list</code> and run <code>refresh_map()</code>
+            in the browser console to change the color to be rendered. 
+        </div>
+        <p></p>
         <textarea></textarea>
         <p></p>
         <div id="copyleft">

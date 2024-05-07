@@ -9,6 +9,8 @@ const coastline_IDs = [
 
 let node_list = []
 
+let refresh_map = function(){}
+
 const loadSVG = function(){
     const container = document.getElementById("svgContainer")
     container.innerHTML = svgData
@@ -21,7 +23,6 @@ const main = function(){
         const id = el.getAttribute("id")
 
         if(coastline_IDs.indexOf(id)!==-1){
-            console.log(el)
             el.setAttribute("pointer-events", "none")
         }
 
@@ -57,7 +58,7 @@ const main = function(){
         })
     })
 
-    textarea.addEventListener("change", event=>{
+    refresh_map = function(){
         node_list.forEach(n=>{
             const id = n[0]
             const children = document.querySelectorAll(`#${id} *`)
@@ -75,7 +76,9 @@ const main = function(){
                 e.setAttribute("fill", `#${color_list[n[1]]}`)
             })
         })
-    })
+    }
+
+    textarea.addEventListener("change", refresh_map)
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
