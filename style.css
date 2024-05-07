@@ -3,6 +3,7 @@ body {
     align-items: center;
     flex-direction: column;
     user-select: none;
+    padding-top: 20px;
 }
 textarea {
     width: 75%;
