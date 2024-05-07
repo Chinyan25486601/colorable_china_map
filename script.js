@@ -5,6 +5,7 @@ const coastline_IDs = [
     "g114",     // Fujian
     "g1694",    // Zhejiang
     "g972",     // Liaoning
+    "g447",     // Hainan
 ]
 
 let node_list = []
